@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, MapPin, Phone, Loader2, AlertCircle } from 'lucide-react';
 import { submitContactForm } from '../lib/contact';
+import { companyContact } from '../data/contact';
 
 const initialForm = {
   name: '',
@@ -66,12 +67,22 @@ export default function Contact() {
           >
             <div className="space-y-6">
               {[
-                { icon: Mail, label: 'Email', value: 'info@novatixholding.com' },
-                { icon: Phone, label: 'Phone', value: '+91 98765 43210' },
+                {
+                  icon: Mail,
+                  label: 'Email',
+                  value: companyContact.email,
+                  href: `mailto:${companyContact.email}`,
+                },
+                {
+                  icon: Phone,
+                  label: 'Phone',
+                  value: companyContact.phone,
+                  href: companyContact.phoneHref,
+                },
                 {
                   icon: MapPin,
                   label: 'Address',
-                  value: '36/12, Kiran Path, Mansarovar, Jaipur - 302020, Rajasthan, India',
+                  value: companyContact.address,
                 },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-4">
@@ -80,7 +91,16 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-slate-500">{item.label}</p>
-                    <p className="mt-0.5 text-white">{item.value}</p>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="mt-0.5 block text-white transition-colors hover:text-cyan-400"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="mt-0.5 text-white">{item.value}</p>
+                    )}
                   </div>
                 </div>
               ))}

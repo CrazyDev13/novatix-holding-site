@@ -1,4 +1,5 @@
 import { serviceCategories } from '../data/services';
+import { companyContact } from '../data/contact';
 import Logo from './Logo';
 
 const footerLinks = [
@@ -63,24 +64,26 @@ export default function Footer() {
 
           <div>
             <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-white">
-              Connect
+              Contact
             </h4>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <a href="#" className="text-sm text-slate-400 transition-colors hover:text-cyan-400">
-                  LinkedIn
+                <a
+                  href={`mailto:${companyContact.email}`}
+                  className="text-sm text-slate-400 transition-colors hover:text-cyan-400"
+                >
+                  {companyContact.email}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-slate-400 transition-colors hover:text-cyan-400">
-                  Facebook
+                <a
+                  href={companyContact.phoneHref}
+                  className="text-sm text-slate-400 transition-colors hover:text-cyan-400"
+                >
+                  {companyContact.phone}
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-sm text-slate-400 transition-colors hover:text-cyan-400">
-                  Instagram
-                </a>
-              </li>
+              <li className="text-sm text-slate-400">{companyContact.address}</li>
             </ul>
           </div>
         </div>
@@ -90,7 +93,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Novatix Holding. All rights reserved.
           </p>
           <p className="text-sm text-slate-500">
-            novatixholding.com
+            {companyContact.website}
           </p>
         </div>
       </div>
