@@ -59,10 +59,10 @@ app.post('/api/contact', async (req, res) => {
     to: process.env.SENDGRID_TO_EMAIL,
     from: {
       email: process.env.SENDGRID_FROM_EMAIL,
-      name: process.env.SENDGRID_FROM_NAME || 'Novatix Holding',
+      name: process.env.SENDGRID_FROM_NAME || 'Novatrix Holding',
     },
     replyTo: safeEmail,
-    subject: `[Novatix Holding] New inquiry from ${safeName}`,
+    subject: `[Novatrix Holding] New inquiry from ${safeName}`,
     text: [
       `Name: ${safeName}`,
       `Email: ${safeEmail}`,

@@ -1,6 +1,6 @@
-# Novatix Holding Website
+# Novatrix Holding Website
 
-Corporate website for [Novatix Holding](https://novatrixholding.com) — web & blockchain development services.
+Corporate website for [Novatrix Holding](https://novatrixholding.com) — web & blockchain development services.
 
 ## Stack
 

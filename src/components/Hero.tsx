@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { company } from '../data/company';
 
 export default function Hero() {
   return (
@@ -17,7 +18,7 @@ export default function Hero() {
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-4 py-1.5 text-sm text-cyan-400"
         >
           <Sparkles size={14} />
-          Novatix Holding — Web & Blockchain Development
+          {company.heroBadge}
         </motion.div>
 
         <motion.h1

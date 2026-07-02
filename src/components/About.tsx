@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Shield, Users, Award, HeadphonesIcon } from 'lucide-react';
 import { features, techStack } from '../data/services';
+import { company } from '../data/company';
 
 const featureIcons = [Shield, Users, Award, HeadphonesIcon];
 
@@ -18,13 +19,13 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm font-semibold uppercase tracking-widest text-violet-400">
-              Why Novatix Holding
+              Why {company.name}
             </p>
             <h2 className="font-display mt-3 text-3xl font-bold text-white sm:text-4xl">
               Your Trusted Partner for Digital Innovation
             </h2>
             <p className="mt-6 leading-relaxed text-slate-400">
-              Novatix Holding is a trusted provider of reliable IT solutions for companies
+              {company.name} is a trusted provider of reliable IT solutions for companies
               of all sizes. Our focus spans blockchain, online platforms, metaverse projects,
               gaming, and software development — delivering products that elevate your business.
             </p>

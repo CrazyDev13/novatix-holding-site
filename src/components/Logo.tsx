@@ -1,3 +1,5 @@
+import { company } from '../data/company';
+
 interface LogoMarkProps {
   className?: string;
 }
@@ -44,7 +46,7 @@ export default function Logo({ variant = 'navbar', className = '' }: LogoProps) 
   const isNavbar = variant === 'navbar';
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`flex items-center gap-3 ${className}`} aria-label={company.name}>
       <div
         className={`relative flex shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/15 to-violet-600/15 ring-1 ring-white/10 transition-transform group-hover:scale-105 ${
           isNavbar ? 'h-14 w-14 sm:h-16 sm:w-16' : 'h-11 w-11'
@@ -58,7 +60,7 @@ export default function Logo({ variant = 'navbar', className = '' }: LogoProps) 
             isNavbar ? 'text-2xl sm:text-3xl' : 'text-xl'
           }`}
         >
-          Nova<span className="gradient-text">tix</span>
+          Nova<span className="gradient-text">trix</span>
         </p>
         <p
           className={`mt-1 font-medium uppercase tracking-[0.25em] text-slate-400 ${

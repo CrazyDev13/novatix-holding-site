@@ -1,5 +1,6 @@
 import { serviceCategories } from '../data/services';
 import { companyContact } from '../data/contact';
+import { company } from '../data/company';
 import Logo from './Logo';
 
 const footerLinks = [
@@ -21,7 +22,7 @@ export default function Footer() {
           <div>
             <Logo variant="footer" />
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              Novatix Holding delivers secure, scalable digital solutions — from blockchain
+              {company.name} delivers secure, scalable digital solutions — from blockchain
               and Web3 to AI and mobile apps — for businesses worldwide.
             </p>
           </div>
@@ -90,7 +91,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} Novatix Holding. All rights reserved.
+            &copy; {new Date().getFullYear()} {company.name}. All rights reserved.
           </p>
           <p className="text-sm text-slate-500">
             {companyContact.website}
