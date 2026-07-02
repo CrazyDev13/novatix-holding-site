@@ -2,9 +2,10 @@ import { company } from '../data/company';
 
 interface LogoMarkProps {
   className?: string;
+  gradientId?: string;
 }
 
-export function LogoMark({ className = 'h-12 w-12' }: LogoMarkProps) {
+export function LogoMark({ className = 'h-12 w-12', gradientId = 'logo-gradient' }: LogoMarkProps) {
   return (
     <svg
       viewBox="0 0 48 48"
@@ -14,21 +15,25 @@ export function LogoMark({ className = 'h-12 w-12' }: LogoMarkProps) {
       aria-hidden="true"
     >
       <path
-        d="M8 40V8l14 22L36 8v32"
-        stroke="url(#logo-gradient)"
-        strokeWidth="5"
+        d="M12 36V12"
+        stroke="#1e3a5f"
+        strokeWidth="5.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
       <path
-        d="M8 8l14 22"
-        stroke="#1e3a5f"
-        strokeWidth="5"
+        d="M12 12L36 36"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="5.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
+      />
+      <path
+        d="M36 12V36"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="5.5"
+        strokeLinecap="round"
       />
       <defs>
-        <linearGradient id="logo-gradient" x1="22" y1="8" x2="36" y2="40" gradientUnits="userSpaceOnUse">
+        <linearGradient id={gradientId} x1="12" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
           <stop stopColor="#06b6d4" />
           <stop offset="1" stopColor="#8b5cf6" />
         </linearGradient>
@@ -44,6 +49,7 @@ interface LogoProps {
 
 export default function Logo({ variant = 'navbar', className = '' }: LogoProps) {
   const isNavbar = variant === 'navbar';
+  const gradientId = variant === 'navbar' ? 'logo-gradient-nav' : 'logo-gradient-footer';
 
   return (
     <div className={`flex items-center gap-3 ${className}`} aria-label={company.name}>
@@ -52,7 +58,10 @@ export default function Logo({ variant = 'navbar', className = '' }: LogoProps) 
           isNavbar ? 'h-14 w-14 sm:h-16 sm:w-16' : 'h-11 w-11'
         }`}
       >
-        <LogoMark className={isNavbar ? 'h-8 w-8 sm:h-9 sm:w-9' : 'h-7 w-7'} />
+        <LogoMark
+          gradientId={gradientId}
+          className={isNavbar ? 'h-9 w-9 sm:h-10 sm:w-10' : 'h-8 w-8'}
+        />
       </div>
       <div className="min-w-0">
         <p
